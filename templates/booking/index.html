@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental Service</title>
+    <link rel="stylesheet" href="{% static 'booking/styles.css' %}">
+    <link rel="icon" href="{% static 'booking/favicon.ico' %}" type="image/x-icon">
+</head>
+<body>
+    <h1>Car Rental Service</h1>
+
+    <p>Welcome, {{ user.username }}!</p>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+
+    <div>
+        <h2>Rent a Car</h2>
+        <form id="rental-form">
+            <label for="car-select">Choose a car:</label>
+            <select id="car-select" required>
+                <!-- Options will be loaded here -->
+            </select>
+            <br>
+            <label for="start-time">Start Time:</label>
+            <input type="datetime-local" id="start-time" required>
+            <br>
+            <label for="end-time">End Time:</label>
+            <input type="datetime-local" id="end-time" required>
+            <br>
+            <button type="submit">Rent Car</button>
+        </form>
+    </div>
+
+    <button id="refresh-history" onclick="loadRentalHistory()">Refresh History</button>
+    <div>
+        <h2>Rental History</h2>
+        <div id="rental-history" class="rental-history">
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>Car</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rental history entries will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+<!--    <div>
+        <h2>Rental History</h2>
+        <div id="rental-history">
+           
+        </ul>
+    </div> --->
+    <div id="pagination-controls">
+        <button onclick="changePage(1)">First</button>
+        <button onclick="changePage(currentPage - 2)">&lt;&lt;</button>
+        <button onclick="changePage(currentPage - 1)">&lt;</button>
+        <button disabled id="current-page">1</button>
+        <button onclick="changePage(currentPage + 1)">&gt;</button>
+        <button onclick="changePage(currentPage + 2)">&gt;&gt;</button>
+        <button onclick="changePage(paginatedHistory.length)">Last</button>
+        <input type="number" id="page-input" placeholder="Go to page..." min="1">
+        <button onclick="gotoPage()">Go</button>
+    </div>
+
+    <script src="{% static 'booking/scripts.js' %}"></script>
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'booking/styles.css' %}">
+    <link rel="icon" href="{% static 'booking/favicon.ico' %}" type="image/x-icon">
+</head>
+<body>
+    <h2>Register</h2>
+    <p>Already have an account? <a href="{% url 'account_login' %}">Sign in here</a></p>
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div id="password-criteria">
+            <p id="length" class="invalid">At least 6 characters long</p>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+    <a href="{% url 'google_login' %}">
+        <button type="button">Sign in with Google</button>
+    </a>
+    <script src="{% static 'booking/registration-scripts.js' %}"></script>
+</body>
+</html>

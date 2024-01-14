@@ -1,0 +1,173 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1200px; /* Max width for large screens */
+    margin: auto; /* Center the content */
+}
+
+header {
+    background: #005792;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: right;
+}
+
+header a, header form button {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+h2 {
+    color: #005792;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="datetime-local"],
+select,
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 500px; /* Maximum width for inputs */
+    margin: 10px auto; /* Center the inputs */
+}
+
+button {
+    background-color: #009ffd;
+    color: #fff;
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007acc;
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        padding: 20px; /* Less padding on smaller screens */
+    }
+
+    header {
+        padding: 10px 20px; /* Corresponding horizontal padding in the header */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="datetime-local"],
+    select,
+    button {
+        width: 100%; /* Full width for mobile inputs */
+        margin: 10px 0; /* Adjust margin for mobile */
+    }
+
+    form button {
+        margin: 10px 0; /* Center the button on mobile */
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        padding: 40px; /* More padding on larger screens */
+    }
+
+    header {
+        padding: 20px 40px; /* Corresponding horizontal padding in the header */
+    }
+}
+
+
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#pagination-controls button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #009ffd;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pagination-controls button:disabled,
+#pagination-controls button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#pagination-controls input[type="number"] {
+    width: auto;
+    padding: 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.rental-history {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto; /* Allows table to scroll on small screens */
+}
+
+#history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#history-table th,
+#history-table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#history-table th {
+    background-color: #009ffd;
+    color: #fff;
+}
+
+#history-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
